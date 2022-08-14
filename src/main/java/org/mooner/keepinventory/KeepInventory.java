@@ -24,6 +24,7 @@ public final class KeepInventory extends JavaPlugin implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onDeath(PlayerDeathEvent e) {
+        e.getDrops().clear();
         e.setKeepInventory(true);
         if(e.getEntity().isOp()) {
             e.setKeepLevel(true);
