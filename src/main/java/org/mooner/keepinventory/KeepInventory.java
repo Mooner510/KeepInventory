@@ -4,6 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockExplodeEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -34,5 +36,15 @@ public final class KeepInventory extends JavaPlugin implements Listener {
         e.setNewExp(0);
         e.setNewLevel(0);
         e.setNewTotalExp(0);
+    }
+
+    @EventHandler
+    public void onExplode(BlockExplodeEvent e) {
+        e.blockList().clear();
+    }
+
+    @EventHandler
+    public void onExplodeEntity(EntityExplodeEvent e) {
+        e.blockList().clear();
     }
 }
