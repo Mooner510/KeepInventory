@@ -30,12 +30,12 @@ public final class KeepInventory extends JavaPlugin implements Listener {
         e.setKeepInventory(true);
         if(e.getEntity().isOp()) {
             e.setKeepLevel(true);
-            return;
+        } else {
+            e.setDroppedExp(0);
+            e.setNewExp(0);
+            e.setNewLevel(0);
+            e.setNewTotalExp(0);
         }
-        e.setDroppedExp(0);
-        e.setNewExp(0);
-        e.setNewLevel(0);
-        e.setNewTotalExp(0);
     }
 
     @EventHandler
